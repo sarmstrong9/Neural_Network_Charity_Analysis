@@ -26,24 +26,23 @@ The results from this analysis help to address the following questions:
 
 - Data Preprocessing  
     - What variable(s) are considered the target(s) for your model?  
-        - asdf
+        - The "IS_SUCCESSFUL" column is the target column as this is the result of what determined if the campaign was successful or not.
     - What variable(s) are considered to be the features for your model?  
-        -asdf 
+        - All columns except the "IS_SUCCESSFUL" are features of the model, except the "EIN" and "NAME" columns.
     - What variable(s) are neither targets nor features, and should be removed from the input data?  
-        - asdf
+        - The "EIN" and "NAME" columns
 - Compiling, Training, and Evaluating the Model  
     - How many neurons, layers, and activation functions did you select for your neural network model, and why?  
-        - asdf  
+        - After completing all the optimization steps, the model used 3 hidden layers, each with 120 neurons.  The "relu" activation function was utilized with 75 epochs.  These were chosen because bumping up the quantity of neurons and hidden layers had achieved the goal of improving model accuracy in prior models.  I continued using the "relu"activation layer as this is what the original model was based off as well.
     - Were you able to achieve the target model performance?
-        - asdf  
+        - I was not able to achieve target model performance of 75% or greater.
     - What steps did you take to try and increase model performance?  
-        - asdf
+        - Optimize Step 1 - I increased the number of neurons to roughly triple the input layers to 120 and 60 respectively  
+        - Optimize Step 2 - I removed the "APPLICATION_TYPE" column from dataset as this seemed like fairly arbitrary data.  I also adjusted the neurons to 105 and 53 respectively based on new input dimensions.  
+        - Optimize Step 3 - I added back in "APPLICATION TYPE" column since accuracy got worse compared to step 1, and then added a third hidden layer and increased neurons to 120 for all layers and increase epochs to 75.  
 
-
-
-optimize step 1 - increase # of neurons to roughly triple the input layers to 120 and 60 respectively
-optimize step 2 - remove "APPLICATION_TYPE" column from dataset as this seemed like fairly arbitrary data - adjust neurons to 105 and 53 resepctively based on new input dimensions
-optimize step 3 - add back in "APPLICATION TYPE" since accuracy got worse from step 1, and then add a third hidden layer, increase neurons to 120 for all layers and increase epochs to 75
+## **Summary**: 
+The overall results of the deep learning model are shown below, including the initial model and the three attempts to optimize the results.  
 
 - Original Model
     - Inputs
@@ -67,5 +66,4 @@ optimize step 3 - add back in "APPLICATION TYPE" since accuracy got worse from s
         ![Optimize 3 Results](results/optimize_attempt3_results.png)  
 
 
-## **Summary**: 
-Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
+A recommendation for how a different model could solve this classification problem could be to use the "RandomForest" model.  This model has proven to be very effective with classification problems in the past, and since the neural network model was having trouble bumping up the accuracy I would recommend trying this model instead.  
